@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AQA GCSE English Literature — Past Questions & Grade 9 Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #1a1a2e;
+    --muted: #4a4a6a;
+    --faint: #8888aa;
+    --surface: #ffffff;
+    --bg: #f5f3ef;
+    --raised: #eeeae3;
+    --border: #d8d3ca;
+    --macbeth: #1a3a5c;
+    --jekyll: #2d1b4e;
+    --inspector: #1e3d1e;
+    --poetry: #5c1a1a;
+    --gold: #c9a84c;
+    --ao1: #1a3a5c;
+    --ao2: #1e3d1e;
+    --ao3: #5c3a00;
+    --grade9: #4a1a4a;
+    --rad: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--ink);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(201,168,76,0.04) 40px,
+      rgba(201,168,76,0.04) 80px
+    );
+  }
+  .site-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #fff;
+    letter-spacing: .02em;
+    position: relative;
+  }
+  .site-header p {
+    color: rgba(255,255,255,.6);
+    margin-top: .5rem;
+    font-size: 14px;
+    position: relative;
+  }
+  .gold-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 1rem auto .5rem;
+  }
+
+  /* ── IMPORTANT NOTE ── */
+  .note-banner {
+    background: #fff8e1;
+    border-left: 4px solid var(--gold);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 2rem;
+    border-radius: 0 var(--rad) var(--rad) 0;
+    font-size: 13.5px;
+    color: #5c4400;
+    line-height: 1.6;
+  }
+  .note-banner strong { color: #3a2c00; }
+
+  /* ── NAV TABS ── */
+  .tab-nav {
+    display: flex;
+    gap: 6px;
+    padding: 1.5rem 2rem 0;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .18s;
+  }
+  .tab-btn:hover { border-color: var(--ink); color: var(--ink); }
+  .tab-btn.active { color: #fff; border-color: transparent; }
+  .tab-btn[data-tab="macbeth"].active    { background: var(--macbeth); }
+  .tab-btn[data-tab="jekyll"].active     { background: var(--jekyll); }
+  .tab-btn[data-tab="inspector"].active  { background: var(--inspector); }
+  .tab-btn[data-tab="poetry"].active     { background: var(--poetry); }
+  .tab-btn[data-tab="formula"].active    { background: #333; }
+
+  /* ── MAIN CONTENT ── */
+  .main { padding: 1.5rem 2rem 4rem; max-width: 920px; }
+  .pane { display: none; }
+  .pane.active { display: block; }
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--rad);
+    padding: .875rem 1.25rem;
+    flex: 1;
+    min-width: 140px;
+  }
+  .stat-n { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; }
+  .stat-l { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 var(--rad) var(--rad) 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .formula-box strong { color: var(--ink); }
+
+  /* ── FILTER ROW ── */
+  .filter-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+  .filter-btn {
+    padding: 4px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .filter-btn.on, .filter-btn:hover {
+    background: var(--raised);
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+
+  /* ── QUESTION CARDS ── */
+  .q-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--rad);
+    margin-bottom: .875rem;
+    overflow: hidden;
+  }
+  .q-head {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    user-select: none;
+  }
+  .q-head:hover { background: var(--bg); }
+  .q-meta { display: flex; flex-direction: column; gap: 5px; flex-shrink: 0; }
+  .year-pill {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .y-real { background: #e8f0fb; color: #1a3a7c; }
+  .y-pred { background: #fff3cd; color: #7a5800; }
+  .theme-pill {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--raised);
+    color: var(--faint);
+    white-space: nowrap;
+  }
+  .q-text {
+    font-size: 14.5px;
+    color: var(--ink);
+    flex: 1;
+    padding-top: 1px;
+    font-weight: 500;
+  }
+  .chevron {
+    font-size: 11px;
+    color: var(--faint);
+    flex-shrink: 0;
+    margin-top: 4px;
+    transition: transform .2s;
+  }
+  .q-body {
+    display: none;
+    padding: 0 1.25rem 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+  .q-body.open { display: block; }
+
+  /* ── BODY SECTIONS ── */
+  .body-section { margin-top: 1rem; }
+  .body-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .lbl-ao1 { background: #e8f0fb; color: var(--ao1); }
+  .lbl-ao2 { background: #e8f5e9; color: var(--ao2); }
+  .lbl-ao3 { background: #fff8e1; color: var(--ao3); }
+  .lbl-g9  { background: #f3e5f5; color: var(--grade9); }
+  .lbl-gen { background: var(--raised); color: var(--muted); }
+
+  .bullet-list { list-style: none; }
+  .bullet-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: .4rem;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .bullet-list li::before {
+    content: '—';
+    color: var(--border);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .bullet-list li strong { color: var(--ink); }
+
+  .grade-block {
+    background: var(--bg);
+    border-left: 3px solid var(--grade9);
+    border-radius: 0 6px 6px 0;
+    padding: .75rem 1rem;
+    font-size: 13.5px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.6;
+    margin-top: .5rem;
+  }
+  .grade-block strong { font-style: normal; color: var(--ink); }
+
+  /* ── SECTION DIVIDER ── */
+  .section-head {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 1.75rem 0 .875rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── PANE HEADER ── */
+  .pane-header {
+    border-bottom: 2px solid;
+    padding-bottom: .75rem;
+    margin-bottom: 1.5rem;
+  }
+  .pane-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .pane-header p { font-size: 13px; color: var(--muted); margin-top: .25rem; }
+  .ph-macbeth   { border-color: var(--macbeth); }
+  .ph-macbeth h2   { color: var(--macbeth); }
+  .ph-jekyll    { border-color: var(--jekyll); }
+  .ph-jekyll h2    { color: var(--jekyll); }
+  .ph-inspector { border-color: var(--inspector); }
+  .ph-inspector h2 { color: var(--inspector); }
+  .ph-poetry    { border-color: var(--poetry); }
+  .ph-poetry h2    { color: var(--poetry); }
+
+  /* ── FORMULA PANE SPECIAL STYLES ── */
+  .formula-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--rad);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .formula-step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: .75rem;
+  }
+  .ao-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 1rem;
+  }
+  .ao-box {
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .ao-box.ao1 { background: #e8f0fb; }
+  .ao-box.ao2 { background: #e8f5e9; }
+  .ao-box.ao3 { background: #fff8e1; }
+  .ao-box h4 { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .5rem; }
+  .ao-box.ao1 h4 { color: var(--ao1); }
+  .ao-box.ao2 h4 { color: var(--ao2); }
+  .ao-box.ao3 h4 { color: var(--ao3); }
+  .ao-box p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  .grade-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+  .gc-box { border-radius: 8px; padding: 1rem; }
+  .gc-box.bad  { background: #fdecea; border-left: 3px solid #c0392b; }
+  .gc-box.good { background: #e8f5e9; border-left: 3px solid #2e7d32; }
+  .gc-box h4 { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .5rem; }
+  .gc-box.bad h4  { color: #7a1a1a; }
+  .gc-box.good h4 { color: #1a4a1a; }
+  .gc-box p { font-size: 13px; color: var(--muted); line-height: 1.55; font-style: italic; }
+
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    margin-top: .75rem;
+  }
+  .vocab-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: .5rem .875rem;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .vocab-item strong { color: var(--ink); display: block; font-size: 13.5px; margin-bottom: 1px; }
+
+  /* ── POETRY COMPARISON TABLE ── */
+  .poem-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: .75rem;
+  }
+  .poem-table th {
+    background: var(--raised);
+    color: var(--ink);
+    font-weight: 600;
+    padding: .6rem .875rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+  .poem-table td {
+    padding: .6rem .875rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    vertical-align: top;
+  }
+  .poem-table tr:last-child td { border-bottom: none; }
+  .poem-table tr:hover td { background: var(--bg); }
+
+  @media (max-width: 640px) {
+    .main, .tab-nav, .note-banner { padding-left: 1rem; padding-right: 1rem; }
+    .grade-compare { grid-template-columns: 1fr; }
+    .ao-row { grid-template-columns: 1fr; }
+    .site-header h1 { font-size: 1.4rem; }
+    .q-head { flex-wrap: wrap; }
+    .q-meta { flex-direction: row; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>AQA GCSE English Literature</h1>
+  <div class="gold-rule"></div>
+  <p>Past Paper Questions (2017–2024) · Grade 9 Answer Frameworks · Examiner Insights</p>
+  <p style="margin-top:.25rem">Herschel Grammar School · Year 10 Mock Revision</p>
+</header>
+
+<div class="note-banner">
+  <strong>Important note on copyright:</strong> AQA's question papers are copyrighted documents — this guide paraphrases question themes and focuses rather than reproducing papers verbatim. The question wording below is paraphrased/reconstructed from publicly confirmed sources. To see the original papers, download them free from <strong>aqa.org.uk/assessment-resources</strong>. What matters for revision is not memorising the exact wording but understanding the <em>patterns</em> — and those are fully documented here.
+</div>
+
+<!-- ── NAVIGATION ── -->
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="macbeth"     onclick="showTab('macbeth',this)">Macbeth</button>
+  <button class="tab-btn"        data-tab="jekyll"      onclick="showTab('jekyll',this)">Jekyll &amp; Hyde</button>
+  <button class="tab-btn"        data-tab="inspector"   onclick="showTab('inspector',this)">An Inspector Calls</button>
+  <button class="tab-btn"        data-tab="poetry"      onclick="showTab('poetry',this)">Power &amp; Conflict</button>
+  <button class="tab-btn"        data-tab="formula"     onclick="showTab('formula',this)">Grade 9 Formula</button>
+</nav>
+
+<main class="main">
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- MACBETH -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="pane active" id="pane-macbeth">
+  <div class="pane-header ph-macbeth">
+    <h2>Macbeth — Shakespeare</h2>
+    <p>Paper 1, Section A · 30 marks + 4 AO4 marks · ~50 minutes · Extract provided</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-n" style="color:var(--macbeth)">8</div><div class="stat-l">Official questions<br>2017–2024</div></div>
+    <div class="stat-card"><div class="stat-n" style="color:var(--macbeth)">34</div><div class="stat-l">Total marks<br>(30 essay + 4 AO4)</div></div>
+    <div class="stat-card"><div class="stat-n" style="color:var(--macbeth)">0</div><div class="stat-l">Times "violence" theme<br>was repeated</div></div>
+    <div class="stat-card"><div class="stat-n" style="color:var(--macbeth)">5</div><div class="stat-l">Big themes tested so far:<br>ambition, supernatural, violence, guilt, gender</div></div>
+  </div>
+
+  <div class="formula-box">
+    <strong>Exam question formula (always the same):</strong> "Starting with this [speech / extract / conversation / moment in the play], explore how Shakespeare presents [theme or character quality] in Macbeth." You must analyse the given extract <em>and</em> refer to the rest of the play.
+  </div>
+
+  <div class="filter-row">
+    <button class="filter-btn on" onclick="filter('macbeth','all',this)">All years</button>
+    <button class="filter-btn" onclick="filter('macbeth','ambition',this)">Ambition &amp; power</button>
+    <button class="filter-btn" onclick="filter('macbeth','supernatural',this)">Supernatural</button>
+    <button class="filter-btn" onclick="filter('macbeth','violence',this)">Violence &amp; guilt</button>
+    <button class="filter-btn" onclick="filter('macbeth','gender',this)">Gender &amp; change</button>
+  </div>
+
+  <div id="cards-macbeth">
+
+    <div class="q-card" data-theme="ambition">
+      <div class="q-head" onclick="toggle(this)">
+        <div class="q-meta"><span class="year-pill y-real">2017</span><span class="theme-pill">ambition</span></div>
+        <span class="q-text">How does Shakespeare present ambition in Macbeth?<br><small style="color:var(--faint);font-weight:400">Extract: Act 1 Scene 5 — Lady Macbeth's "unsex me here" soliloquy</small></span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="q-body">
+        <div class="body-section">
+          <span class="body-label lbl-ao1">AO1 — What to argue</span>
+          <ul class="bullet-list">
+            <li>Lady Macbeth's ambition is <strong>more unrestrained than Macbeth's</strong> — she invokes the supernatural to override her own conscience</li>
+            <li>Her ambition is paradoxically directed <strong>through her husband</strong>, not for herself — reveals the limited channels available to women in a patriarchal Jacobean society</li>
+            <li>Wider play link: ambition <strong>corrodes</strong> both characters — by Act 5 Lady Macbeth is broken by guilt; Macbeth has become the more ruthless one without her instigation</li>
+            <li>Key insight for grade 9: ambition in the play is never triumphant — it achieves what it desires, then destroys the one who desired it</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao2">AO2 — Language, form &amp; structure</span>
+          <ul class="bullet-list">
+            <li><strong>Imperative verbs</strong> — "Come, you spirits… Come, thick night… Come to my woman's breasts" — the anaphoric structure shows her ambition as commanding, urgent, almost ritualistic</li>
+            <li><strong>Soliloquy form</strong> — the audience alone hears her true mind; the dramatic irony intensifies when she performs dutiful hostess to Duncan moments later</li>
+            <li><strong>Darkness imagery</strong> — "thick night," "dunnest smoke of hell" — she wants to blind conscience itself, suggesting ambition requires the suppression of moral sight</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao3">AO3 — Context to embed naturally</span>
+          <ul class="bullet-list">
+            <li><strong>Jacobean gender expectations</strong>: women were defined by passivity and maternity — her desire to be "unsexed" would have read as monstrous to a 1606 audience</li>
+            <li><strong>Divine right of kings</strong>: ambition that targets a monarch was not merely political crime but cosmic transgression against God's order</li>
+            <li><strong>James I's Daemonologie (1597)</strong>: the king's personal interest in witchcraft gives the supernatural invocation political urgency — Shakespeare is writing for his patron</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-g9">Grade 9 — Opening sentence model</span>
+          <div class="grade-block">Shakespeare presents ambition in <em>Macbeth</em> as a force that demands the suppression of everything that makes one human — Lady Macbeth's soliloquy reveals that to pursue power, she must first destroy her own conscience, her femininity, and ultimately her capacity for sleep.</div>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-g9">Grade 9 — Comparing interpretations (essential for level 6)</span>
+          <div class="grade-block">A surface reading presents Lady Macbeth as monstrous. A more nuanced reading, however, suggests that Shakespeare is critiquing the <em>system</em> that forces a capable, politically astute woman to channel her intelligence through manipulation of a man — her monstrousness is partly a product of having no legitimate outlet for her ambition.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card" data-theme="supernatural">
+      <div class="q-head" onclick="toggle(this)">
+        <div class="q-meta"><span class="year-pill y-real">2018</span><span class="theme-pill">supernatural</span></div>
+        <span class="q-text">How does Shakespeare present the attitudes of Macbeth and Banquo towards the supernatural?<br><small style="color:var(--faint);font-weight:400">Extract: Act 1 Scene 3 — immediately after the witches' prophecies</small></span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="q-body">
+        <div class="body-section">
+          <span class="body-label lbl-ao1">AO1 — What to argue</span>
+          <ul class="bullet-list">
+            <li><strong>Contrast is the key</strong>: Banquo is intellectually sceptical and morally guarded; Macbeth is immediately captivated and inwardly seduced</li>
+            <li>Crucially: the witches <strong>tempt, not create</strong> Macbeth's ambition — he is immediately drawn to the prophecy because the desire was already there</li>
+            <li>Wider play: by Act 4, Macbeth <strong>seeks</strong> the witches himself — his relationship with the supernatural shifts from passive recipient to active demander</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao2">AO2 — Methods</span>
+          <ul class="bullet-list">
+            <li>Macbeth's <strong>aside</strong> — "why do I yield to that suggestion / Whose horrid image doth unfix my hair" — the use of aside signals private terror he cannot share; iambic pentameter begins to break down under psychological pressure</li>
+            <li>Banquo's <strong>"bubbles" simile</strong> — he trivialises the witches by reducing them to something fragile and insubstantial; language is his defence against their power</li>
+            <li>The word <strong>"rapt"</strong> used twice about Macbeth — he is already entranced; the passive connotation suggests he sees himself as chosen rather than choosing</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao3">AO3 — Context</span>
+          <ul class="bullet-list">
+            <li>James I wrote <em>Daemonologie</em> (1597) — staging witches as genuinely powerful (not fraudulent) aligned with royal belief</li>
+            <li><strong>Calvinist predestination</strong>: the question of whether the witches reveal or determine fate was theologically live for a Jacobean audience — Macbeth's dilemma is partly about free will vs providence</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-g9">Grade 9 — Key insight</span>
+          <div class="grade-block">Shakespeare uses the contrast between Macbeth and Banquo to suggest that the danger of the supernatural lies not in its power but in the <em>pre-existing desires</em> of the listener — Banquo is not immune, but he is forewarned by his own scepticism. The witches function, as Hecate later implies, as exploiters of human weakness rather than creators of fate.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card" data-theme="violence">
+      <div class="q-head" onclick="toggle(this)">
+        <div class="q-meta"><span class="year-pill y-real">2019</span><span class="theme-pill">violence &amp; masculinity</span></div>
+        <span class="q-text">How far does Shakespeare present Macbeth as a violent character?<br><small style="color:var(--faint);font-weight:400">Extract: Act 1 Scene 2 — the Captain's report of the battle</small></span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="q-body">
+        <div class="body-section">
+          <span class="body-label lbl-ao1">AO1 — "How far" requires a nuanced position</span>
+          <ul class="bullet-list">
+            <li><strong>Act 1 violence: sanctioned and heroic</strong> — Macbeth is praised for the same acts that would be condemned in Acts 3–4</li>
+            <li>Argue that the <strong>nature of violence changes</strong> rather than violence itself: battlefield violence → regicidal violence → paranoid mass murder (Macduff's family)</li>
+            <li>Grade 9 position: Macbeth is always violent — but the <em>moral framing</em> of that violence is what transforms him from hero to tyrant. Shakespeare uses violence as a lens through which to explore how societies judge the same act differently depending on who commands it.</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao2">AO2 — Methods in extract</span>
+          <ul class="bullet-list">
+            <li>"<strong>Unseam'd him from the nave to the chaps</strong>" — visceral, almost surgical precision; the graphic detail is presented admiringly by the Captain, showing violence as craft and masculine virtue</li>
+            <li><strong>Second-hand narration</strong> (Captain telling Duncan) — Macbeth is absent from his own heroic story; his violence is legendary before we meet him, creating expectation Shakespeare then subverts</li>
+            <li><strong>"Brave Macbeth"</strong> — the epithet is sincere in Act 1; by Act 5 "brave" carries tragic irony as his courage becomes the courage of desperation</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao3">AO3 — Context</span>
+          <ul class="bullet-list">
+            <li>Jacobean <strong>masculine ideal</strong>: military prowess was the highest male virtue — Macbeth's opening violence is the pinnacle of his world's value system</li>
+            <li>Lady Macbeth later weaponises this: "so much more the man" when persuading him to murder — the play reveals how masculinity's glorification of violence makes it exploitable</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card" data-theme="gender">
+      <div class="q-head" onclick="toggle(this)">
+        <div class="q-meta"><span class="year-pill y-real">2020</span><span class="theme-pill">gender &amp; change</span></div>
+        <span class="q-text">'Lady Macbeth is a female character who changes during the play.' Explore how far you agree.<br><small style="color:var(--faint);font-weight:400">Extract: Act 5 Scene 1 — the sleepwalking scene</small></span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="q-body">
+        <div class="body-section">
+          <span class="body-label lbl-ao1">AO1 — Nuanced position</span>
+          <ul class="bullet-list">
+            <li>She changes <strong>dramatically in her psychological state</strong> — from commanding to broken — but her <strong>capacity for guilt</strong> was always present, suppressed not absent</li>
+            <li>Argue: the change is a <strong>revelation</strong>, not a transformation — her femininity returns because it was never truly destroyed, only repressed</li>
+            <li>Ironically, Macbeth changes <em>into</em> what Lady Macbeth wanted to be — ruthless, remorseless — just as she collapses; a role reversal Shakespeare engineers deliberately</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao2">AO2 — The sleepwalking extract</span>
+          <ul class="bullet-list">
+            <li><strong>Fragmented prose</strong> (not blank verse) — loss of ordered form mirrors loss of ordered mind; earlier she commanded in controlled verse</li>
+            <li>"<strong>Out, damned spot</strong>" — the same imperative constructions she used to summon spirits in Act 1, now turned inward, directed at her own guilt; she has lost the power to command even herself</li>
+            <li><strong>Doctor and Gentlewoman as observers</strong> — her madness is now public spectacle; she has lost the privacy she depended on to maintain her mask</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-g9">Grade 9 — Sophisticated context link</span>
+          <div class="grade-block">Shakespeare's use of prose for Lady Macbeth is structurally significant: prose was conventionally associated with lower-class characters in the period. Her linguistic descent from verse to prose enacts her social and psychological disintegration — she has lost not just her sanity but the cultural markers of her status. The irony is that the very suppression of her femininity that gave her the illusion of power ultimately makes her collapse more total than Macbeth's.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card" data-theme="violence">
+      <div class="q-head" onclick="toggle(this)">
+        <div class="q-meta"><span class="year-pill y-real">2021</span><span class="theme-pill">guilt &amp; psychological</span></div>
+        <span class="q-text">How does Shakespeare present Macbeth's state of mind?<br><small style="color:var(--faint);font-weight:400">Extract: Act 2 Scene 1 — the "Is this a dagger" soliloquy</small></span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="q-body">
+        <div class="body-section">
+          <span class="body-label lbl-ao1">AO1 — What to argue</span>
+          <ul class="bullet-list">
+            <li>Macbeth's mind is already fracturing <strong>before</strong> the murder — anticipation of guilt, not guilt itself, destabilises him</li>
+            <li>The hallucination shows that his conscience and ambition are at war; the dagger is a <strong>projection of desire and fear simultaneously</strong></li>
+            <li>Wider: by Act 3 the ghost of Banquo shows hallucinations return; by Act 5 he is numb — the arc of psychological deterioration is complete</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao2">AO2 — Methods</span>
+          <ul class="bullet-list">
+            <li><strong>Apostrophe</strong> — "Come, let me clutch thee" — addressing the dagger directly shows him losing the boundary between reality and imagination</li>
+            <li><strong>Questions</strong> — "Art thou not, fatal vision, sensible / To feeling as to sight?" — uncertainty is enacted in the interrogative form; his mind offers no stable answers</li>
+            <li><strong>Nature imagery</strong> — "witchcraft celebrates / Pale Hecate's offerings" — aligning himself with the supernatural world he is about to enter</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card" data-theme="violence">
+      <div class="q-head" onclick="toggle(this)">
+        <div class="q-meta"><span class="year-pill y-real">2022</span><span class="theme-pill">fear &amp; paranoia</span></div>
+        <span class="q-text">How does Shakespeare present Macbeth's fears?<br><small style="color:var(--faint);font-weight:400">Extract: Act 3 Scene 1 — Macbeth's soliloquy before hiring the murderers</small></span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="q-body">
+        <div class="body-section">
+          <span class="body-label lbl-ao1">AO1 — What to argue</span>
+          <ul class="bullet-list">
+            <li>Macbeth's <strong>primary fear is dynastic</strong> — he fears losing legacy (Banquo's sons as kings), not moral punishment; this reveals his ambition persists despite everything</li>
+            <li>Key insight: <strong>fear drives more violence</strong> in this play rather than restraining it — the tragic cycle; each murder creates new threats to fear</li>
+            <li>Wider: by Act 5 he claims to have "supped full with horrors" — fear eventually gives way to a kind of nihilistic courage</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao2">AO2 — Methods</span>
+          <ul class="bullet-list">
+            <li>"<strong>Fruitless crown</strong>" / "<strong>barren sceptre</strong>" — sterility imagery shows fear is about legacy, not conscience; power without continuation is meaningless to him</li>
+            <li><strong>Banquo's ghost (Act 3 Scene 4)</strong> — fear made externally visible; private psychological terror becomes public spectacle, undermining his authority as king</li>
+            <li>The soliloquy form — Shakespeare gives us <strong>interiority denied to Lady Macbeth</strong> in this scene; his fear is intimate and exposed to the audience</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card" data-theme="gender">
+      <div class="q-head" onclick="toggle(this)">
+        <div class="q-meta"><span class="year-pill y-real">2023</span><span class="theme-pill">masculinity &amp; change</span></div>
+        <span class="q-text">How far does Shakespeare present Macbeth as a male character who changes during the play?<br><small style="color:var(--faint);font-weight:400">Extract: Act 5 Scene 3 — "I have lived long enough"</small></span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="q-body">
+        <div class="body-section">
+          <span class="body-label lbl-ao1">AO1 — "How far" position</span>
+          <ul class="bullet-list">
+            <li>He changes from <strong>honoured soldier to isolated tyrant</strong> — but what stays constant is his physical courage, which never abandons him</li>
+            <li>"How far": argue that the <strong>capacity for change was always there</strong> (his conscience was never entirely absent); but the direction of change is consistently downward</li>
+            <li>Sophisticated angle: the play questions whether Macbeth's "masculinity" changes or whether it is <em>revealed</em> — stripped of social role and Lady Macbeth, we see what remains</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao2">AO2 — Extract methods</span>
+          <ul class="bullet-list">
+            <li>"<strong>I have lived long enough</strong>" — a short, declarative sentence after the expansive rhetoric of Act 1; the syntactic compression enacts psychological exhaustion</li>
+            <li>Listing of what he has lost — "<strong>honour, love, obedience, troops of friends</strong>" — the catalogue of absence shows a man aware of his own devastation; this self-knowledge is almost tragic</li>
+            <li>Yet he <strong>still fights</strong> — "Yet I will try the last" — the soldier's identity survives everything else; stubbornness becomes the only remaining version of himself</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card" data-theme="ambition">
+      <div class="q-head" onclick="toggle(this)">
+        <div class="q-meta"><span class="year-pill y-real">2024</span><span class="theme-pill">relationship &amp; power</span></div>
+        <span class="q-text">How does Shakespeare present the relationship between Macbeth and Lady Macbeth?<br><small style="color:var(--faint);font-weight:400">Extract: Act 2 Scene 2 — immediately after Duncan's murder</small></span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="q-body">
+        <div class="body-section">
+          <span class="body-label lbl-ao1">AO1 — What to argue</span>
+          <ul class="bullet-list">
+            <li>The murder is the <strong>pivot point</strong> — their roles begin to swap here; Lady Macbeth's control starts to slip as Macbeth's guilt and then determination both grow without her</li>
+            <li>Their relationship begins as a genuine <strong>partnership</strong> (uniquely for the period) and deteriorates into emotional isolation — by Act 5 Macbeth hears of her death with near-indifference</li>
+            <li>Wider play: the couple's inability to share guilt is what destroys them; their communication fractures because each processes trauma differently</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-ao2">AO2 — Methods</span>
+          <ul class="bullet-list">
+            <li><strong>Stichomythia</strong> (rapid, alternating short lines) — the jagged exchange creates panic and shows the first moment their rhythms are out of sync</li>
+            <li>"<strong>A little water clears us of this deed</strong>" — Lady Macbeth's pragmatism here foreshadows the sleepwalking scene where no amount of washing helps; dramatic irony at the play's structural level</li>
+            <li>Macbeth's fixation on the <strong>"voice" he heard</strong> — he cannot suppress his conscience; she can at this point. The divergence in their responses here predicts the divergence to come</li>
+          </ul>
+        </div>
+        <div class="body-section">
+          <span class="body-label lbl-g9">Grade 9 — Structural analysis</span>
+          <div class="grade-block">Shakespeare structures their relationship as an inverse arc: as Macbeth's moral sensitivity decreases, Lady Macbeth's guilt increases — they pass each other going in opposite directions. This structural irony means the audience watches both characters fail, but for opposite reasons: he loses his conscience; she cannot lose hers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card" data-theme="ambition">
+      <div class="q-head" onclick="toggle(this)">
+        <div class="q-meta"><span class="year-pill y-pred">Predicted 2025</span><span class="theme-pill">theme not yet tested</span></div>
+        <span class="q-text">Likely focuses: appearance vs reality · Macbeth's relationship with the witches (Act 4) · loyalty and betrayal<br><small style="color:var(--faint);font-weight:400">These specific angles have not appeared in any exam 2017–2024</small></span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="q-body">
+        <div class="body-section">
+          <span class="body-label lbl-gen">Predicting gaps in the pattern</span>
+          <ul class="bullet-list">
+            <li><strong>Act 4 Scene 1</strong> (cauldron/apparitions) has never been an extract — high-value revision target</li>
+            <li><strong>Loyalty/treachery</strong> as a theme has not been directly asked — the play opens with a traitor executed and closes with another king killed; strong thematic backbone</li>
+            <li><strong>Appearance vs reality</strong> ("Fair is foul") — the play's opening paradox has never been the central question despite being one of its core ideas</li>
+            <li>Whatever comes up: the <em>structure of your essay is more important than the specific question</em> — a student who can deploy AO1 + AO2 + AO3 fluently will adapt to any question</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cards-macbeth -->
+</div><!-- /pane-macbeth -->
+
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- JEKYLL & HYDE -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="pane" id="pane-jekyll">
+  <div class="pane-header ph-jekyll">
+    <h2>The Strange Case of Dr Jekyll and Mr Hyde — Stevenson</h2>
+    <p>Paper 1, Section B · 30 marks · ~45 minutes · Extract provided</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-n" style="color:var(--jekyll)">7</div><div class="stat-l">Official questions<br>2017–2024</div></div>
+    <div class="stat-card"><div class="stat-n" style="color:var(--jekyll)">30</div><div class="stat-l">Marks available<br>(no AO4 in Sec B)</div></div>
+    <div class="stat-card"><div class="stat-n" style="color:var(--jekyll)">Ch.1</div><div class="stat-l">Most common extract<br>chapter range</div></div>
+  </div>
+
+  <div class="formula-box">
+    <strong>Question formula:</strong> "Starting with this extract, explore how Stevenson presents [theme/character]." Extract is always provided. Must analyse extract and link to the <em>whole novel</em>. Unlike Macbeth, there is no "how far do you agree" phrasing — but you should still offer alternative readings for grade 8–9.
+  </div>
+
+  <div class="section-head">Past questions 2017–2024</div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-real">2017</span><span class="theme-pill">duality</span></div>
+      <span class="q-text">How does Stevenson explore the idea of duality?<br><small style="color:var(--faint);font-weight:400">Extract: Chapter 10 — Jekyll's confession about his life as a younger man</small></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">AO1 — What to argue</span>
+        <ul class="bullet-list">
+          <li>Duality is <strong>not unique to Jekyll</strong> — Stevenson presents it as a <strong>universal Victorian condition</strong>: the gap between public respectability and private desire that every middle-class man navigates</li>
+          <li>Grade 9 angle: Hyde is not <em>purely evil</em> — he is Jekyll's authentic self stripped of social performance; both halves are real, the choice of suppression is what creates the monster</li>
+          <li>The novel's form itself enacts duality — multiple narrators (Utterson, Lanyon, Jekyll) means the "truth" is always partial, always fragmented</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao2">AO2 — Methods</span>
+        <ul class="bullet-list">
+          <li><strong>Setting duality</strong> — Jekyll's respectable Cavendish Square frontage vs Hyde's Soho laboratory accessed through the back door; the architectural split literalises the psychological one</li>
+          <li><strong>"Cloak" metaphor</strong> — "to doff at once the body of the noted professor, and to assume, like a thick cloak, that of Edward Hyde" — Hyde is worn, not a separate being; the image implies Hyde can be shed, but eventually cannot be</li>
+          <li><strong>Epistolary structure</strong> — Stevenson reserves the truth for the final two chapters (letters from Lanyon and Jekyll); the delay mirrors the Victorian suppression of uncomfortable truth</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao3">AO3 — Context</span>
+        <ul class="bullet-list">
+          <li><strong>Darwin's evolutionary theory (1859)</strong>: fear that humans retained "primitive" impulses beneath civilised exteriors — Hyde's animalistic descriptions directly invoke this anxiety</li>
+          <li><strong>Victorian respectability</strong>: the pressure to maintain a morally upright public persona was enormous for middle-class men; Stevenson is interrogating the psychological cost of this performance</li>
+          <li><strong>Fin de siècle degeneration theory</strong>: 1880s debates about whether civilisation could "regress" — Hyde represents this fear made flesh</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-real">2018</span><span class="theme-pill">good &amp; evil</span></div>
+      <span class="q-text">How does Stevenson present ideas about good and evil?<br><small style="color:var(--faint);font-weight:400">Extract: Chapter 2 — Utterson reads Jekyll's will, encounters Hyde for the first time</small></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">AO1 — What to argue</span>
+        <ul class="bullet-list">
+          <li>Stevenson <strong>complicates the binary</strong> — Jekyll is "good" by Victorian standards but his experiments reveal moral recklessness; Hyde does evil but his pleasures are Jekyll's authentic desires</li>
+          <li>The novel suggests that <strong>defining evil as purely external</strong> (as Victorian society does) is itself a moral failure — it enables the Jekyll/Hyde split to occur in the first place</li>
+          <li>Utterson represents <strong>moral pragmatism</strong> — "I incline to Cain's heresy / I let my brother go to the devil in his own way" — even the "good" characters have compromised ethics</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao2">AO2 — Methods</span>
+        <ul class="bullet-list">
+          <li><strong>Gothic imagery</strong> throughout: fog, locked doors, midnight activities — evil is always concealed, associated with darkness and inaccessibility</li>
+          <li>Hyde described as "<strong>troglodytic</strong>," "<strong>ape-like</strong>," radiating "Satanic" impression — Darwinian and religious registers simultaneously; Stevenson uses multiple cultural frameworks for "evil"</li>
+          <li>The <strong>legal document</strong> (the will) as the entry point — evil enters through the most rational, trustworthy Victorian institution, the law; the juxtaposition is deliberately unsettling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-real">2019</span><span class="theme-pill">reputation &amp; secrecy</span></div>
+      <span class="q-text">How does Stevenson present the importance of reputation?<br><small style="color:var(--faint);font-weight:400">Extract: Chapter 1 — Enfield describes Hyde's trampling incident to Utterson</small></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">AO1 — What to argue</span>
+        <ul class="bullet-list">
+          <li>Reputation is presented as the <strong>supreme Victorian value</strong> — characters consistently suppress truth to protect social standing, and this silence enables Hyde to operate</li>
+          <li>Stevenson's critique: <strong>the cult of reputation</strong> is what makes the Jekyll/Hyde situation possible and what keeps it hidden — complicity is built from respectability</li>
+          <li>The novel's <strong>resolution is built on reputation</strong> too — Utterson burns Lanyon's letter and manages Jekyll's estate, preserving the fiction of respectability even after death</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao2">AO2 — Methods</span>
+        <ul class="bullet-list">
+          <li><strong>Utterson's name</strong> — "utter son," suggesting someone who should speak but consistently chooses silence; the irony is structural</li>
+          <li>"<strong>No gentleman but wishes to avoid a scene</strong>" — free indirect speech captures Victorian social hypocrisy in a single sentence; the narrative voice adopts the value system it critiques</li>
+          <li>Enfield's rule: "<strong>the more it looks like Queer Street, the less I ask</strong>" — wilful ignorance is presented as social etiquette; Stevenson reveals how reputation depends on collective blindness</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-g9">Grade 9 — Critical reading</span>
+        <div class="grade-block">Stevenson presents reputation not merely as social vanity but as a <em>structural force</em> that determines what can be seen and said in Victorian society. The men in Chapter 1 agree to forget what they have witnessed — and in that agreement, Stevenson suggests, lies the enabling condition of everything that follows. Reputation is not a victim of the Hyde situation; it is its architect.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-real">2022</span><span class="theme-pill">science &amp; danger</span></div>
+      <span class="q-text">How does Stevenson present the dangers of scientific experimentation?<br><small style="color:var(--faint);font-weight:400">Extract: Chapter 9 — Lanyon witnesses the transformation</small></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">AO1 — What to argue</span>
+        <ul class="bullet-list">
+          <li>Science without ethical limits <strong>destroys both experimenter and witness</strong> — Jekyll dies losing himself; Lanyon dies of shock; science is contagious in its destructiveness</li>
+          <li>Jekyll's experiments represent <strong>scientific hubris</strong> — the Faustian desire to "transcend" human nature; Stevenson aligns this with the Gothic tradition of transgression and punishment</li>
+          <li>Key nuance: <strong>the science itself is not the problem</strong> — it is the absence of moral framework; Jekyll uses the freedom science gives him irresponsibly</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao2">AO2 — Methods</span>
+        <ul class="bullet-list">
+          <li>Gothic horror in the transformation — "<strong>he seemed to swell</strong>," "<strong>features seemed to melt and alter</strong>" — science produces the physically monstrous; the body becomes the site of horror</li>
+          <li><strong>Lanyon's epistolary narration</strong> — written as a death-bed confession; the act of writing kills him because knowledge itself is lethal when it transgresses natural limits</li>
+          <li>Jekyll's <strong>rhetorical questions and grandiose language</strong> in his own confession — "I had but to drink the cup" — messianic self-mythologising reveals his arrogance even in confession</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao3">AO3 — Context</span>
+        <ul class="bullet-list">
+          <li><strong>1880s scientific anxiety</strong>: vivisection debates, germ theory, anaesthesia — rapid advances made some Victorians fear science outpacing morality</li>
+          <li>The novel was published <strong>1886</strong> — same decade as Jack the Ripper murders (1888); Hyde's violence connects to real public fear about hidden criminality in respectable London</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-pred">Predicted 2025</span><span class="theme-pill">themes not yet asked</span></div>
+      <span class="q-text">Likely themes: Hyde's violence/evil nature · Utterson as detective figure · fear and horror · the city/setting of London<br><small style="color:var(--faint);font-weight:400">These have appeared as minor elements but not as the primary question focus</small></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-gen">Key revision targets for 2025</span>
+        <ul class="bullet-list">
+          <li><strong>Hyde as a character in his own right</strong> — his violence, his energy, his appeal to Jekyll — not merely as a symbol</li>
+          <li><strong>The setting of London</strong> — Jekyll's respectable West End vs Hyde's Soho — has supported many questions but never been the primary focus</li>
+          <li><strong>Chapter 8 (Poole and the breaking down of the door)</strong> — a tense, climactic chapter that hasn't been an extract yet</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /pane-jekyll -->
+
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- AN INSPECTOR CALLS -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="pane" id="pane-inspector">
+  <div class="pane-header ph-inspector">
+    <h2>An Inspector Calls — J.B. Priestley</h2>
+    <p>Paper 2, Section A · 30 marks · ~45 minutes · NO extract — whole-play essay</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-n" style="color:var(--inspector)">8+</div><div class="stat-l">Official questions<br>2017–2024</div></div>
+    <div class="stat-card"><div class="stat-n" style="color:var(--inspector)">30</div><div class="stat-l">Marks available</div></div>
+    <div class="stat-card"><div class="stat-n" style="color:var(--inspector)">No</div><div class="stat-l">Extract given — must<br>recall your own evidence</div></div>
+  </div>
+
+  <div class="formula-box">
+    <strong>Key difference from Paper 1:</strong> An Inspector Calls questions give you <em>no extract</em> — you write a whole-play essay choosing your own evidence. Questions typically ask: "How does Priestley present [character/theme] in An Inspector Calls?" or "How far does Priestley present [character] as [quality]?" Always two questions offered — pick one.
+  </div>
+
+  <div class="section-head">Past questions 2017–2024 (two per year — pick one)</div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-real">2017</span><span class="theme-pill">character · responsibility</span></div>
+      <span class="q-text">Q1: How far does Priestley present Mrs Birling as an unlikeable character?<br>Q2: How does Priestley use the Inspector to suggest ways society could be improved?</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">Q1: Mrs Birling — key arguments</span>
+        <ul class="bullet-list">
+          <li>She is designed to be <strong>morally repugnant</strong> — her refusal to help Eva Smith at the charity committee is presented as prejudice dressed as principle</li>
+          <li><strong>"How far"</strong> — consider whether Priestley wants understanding as well as judgment; she is a product of her class, era and a society that rewards her attitudes</li>
+          <li>Her <strong>confidence is structural</strong>, not individual — she represents a whole class's inability to conceive that Eva's suffering is related to their choices</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao2">AO2 — Methods for Mrs Birling</span>
+        <ul class="bullet-list">
+          <li>"<strong>I'm talking as a member of a hard-headed, practical older generation</strong>" — dramatic irony; she frames selfishness as wisdom and experience</li>
+          <li>Her <strong>refusal to acknowledge Eva's pregnancy</strong> even after learning Eric is the father — structural dramatic irony; the audience knows before she does</li>
+          <li>She is given the <strong>least character development</strong> of the Birling family — Priestley's deliberate choice; she is the most resistant to the play's message</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao3">AO3 — Context</span>
+        <ul class="bullet-list">
+          <li>Written <strong>1945</strong>, set <strong>1912</strong> — Priestley addresses a post-war audience who had experienced collective sacrifice (rationing, evacuation); Mrs Birling represents the individualist pre-war mindset that caused the failures he is critiquing</li>
+          <li>The <strong>welfare state was being established (1945–48)</strong> as the play was written — Priestley was actively arguing for collective responsibility; Mrs Birling is its antithesis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-real">2018</span><span class="theme-pill">social class · character</span></div>
+      <span class="q-text">Q1: How does Priestley explore the importance of social class?<br>Q2: How does Priestley present Eric as a character who changes his attitudes?</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">Q1: Social class — key arguments</span>
+        <ul class="bullet-list">
+          <li>Class is the <strong>mechanism of exploitation</strong> — each Birling's involvement with Eva reflects how class privilege enables harm with impunity</li>
+          <li>Priestley presents class as <strong>morally corrosive</strong>, not neutral — those who most strongly assert class superiority are judged most harshly by the play's structure</li>
+          <li>Key: <strong>Eva Smith has no name of her own</strong> — "Smith" is generic, the most common English surname; Priestley makes her the representative of an entire class rendered nameless by those who exploit them</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao2">AO2 — Methods</span>
+        <ul class="bullet-list">
+          <li>Mr Birling's <strong>opening speech</strong> — confident predictions about the Titanic, no war, labour harmony; the dramatic irony is devastating because the 1945 audience knows every prediction was wrong; class confidence produces fatal blindness</li>
+          <li><strong>Inspector Goole</strong> — "goole" sounds like "ghoul"; he is a supernatural avenging force, but also perhaps the collective conscience of the working class made visible</li>
+          <li>The <strong>lighting changes</strong> from "warm and intimate" to "harder and brighter" — Priestley's stagecraft makes class comfort literally visible, then strips it away</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-real">2019</span><span class="theme-pill">responsibility &amp; selfishness</span></div>
+      <span class="q-text">Q1: How does Priestley present selfishness and its effects?<br>Q2: How does Priestley present Sheila Birling as a character who changes?</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">Q1: Selfishness — key argument</span>
+        <ul class="bullet-list">
+          <li>Each character's act of selfishness is individually <strong>"understandable"</strong> — a businessman's decision, a jilted fiancé's jealousy, a boy's recklessness — but <strong>cumulatively they kill Eva Smith</strong></li>
+          <li>Priestley's genius: the play shows how <strong>ordinary selfishness</strong>, not monstrous evil, destroys lives; the Birlings are not villains, they are just people who never look beyond themselves</li>
+          <li>The Inspector's final speech — "We are members of one body" — is the explicit thematic statement: collectivism against individualism</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-real">2020</span><span class="theme-pill">character · responsibility</span></div>
+      <span class="q-text">Q1: How far does Priestley present Mr Birling as a man who cares only for himself?<br>Q2: How far does Priestley present male characters as irresponsible?</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">Q2: Male characters — key argument</span>
+        <ul class="bullet-list">
+          <li>All male characters show irresponsibility — Mr Birling (economic), Gerald (sexual), Eric (both) — but their <strong>irresponsibility is enabled by patriarchal power</strong>, not just individual weakness</li>
+          <li>"How far" — note that the Inspector himself is male; Priestley complicates the gender critique by making the moral agent male too</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-real">2022</span><span class="theme-pill">character · responsibility</span></div>
+      <span class="q-text">Q1: How far does Priestley present Eric as a character who learns important lessons?<br>Q2: 'Priestley shows how inequality in society leads to tragedy.' How far do you agree?</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">Q1: Eric — nuanced position</span>
+        <ul class="bullet-list">
+          <li>Eric does <strong>genuinely learn</strong> — he is appalled and accepts responsibility, unlike his parents</li>
+          <li>But: his behaviour towards Eva was <strong>coercive and exploitative</strong> — remorse does not cancel the harm; the play is careful not to let his contrition become redemption</li>
+          <li>He is positioned as the <strong>representative of younger generation</strong> that Priestley hopes will do better — not a hero, but a possibility</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="year-pill y-real">2023</span><span class="theme-pill">theme · responsibility</span></div>
+      <span class="q-text">Q1: How does Priestley present the theme of inequality?<br>Q2: How does Priestley present Gerald's role in the play?</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">Q1: Inequality — key argument</span>
+        <ul class="bullet-list">
+          <li>Inequality is <strong>structural</strong>, not incidental — the Birlings' wealth actively depends on keeping people like Eva Smith cheap and powerless</li>
+          <li><strong>Gender inequality intersects class</strong>: Eva is doubly vulnerable as a poor woman in 1912 — she has no legal protection, no union rights, no welfare state</li>
+          <li>The <strong>ending is deliberately ambiguous</strong> about whether inequality will be addressed — the phone call at the end suggests the tragic cycle will repeat</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /pane-inspector -->
+
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- POWER & CONFLICT POETRY -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="pane" id="pane-poetry">
+  <div class="pane-header ph-poetry">
+    <h2>Power &amp; Conflict Poetry Anthology</h2>
+    <p>Paper 2, Section B · 30 marks · ~45 minutes · Named poem printed on paper; you choose the comparison poem</p>
+  </div>
+
+  <div class="formula-box">
+    <strong>Question formula (always):</strong> "Compare how poets present [theme] in [named poem] and in one other poem from 'Power and Conflict'." The named poem is printed in full on the paper. You must choose and recall your second poem — choosing well is a real skill.
+  </div>
+
+  <div class="section-head">All past questions 2017–2024 with strategic pairing advice</div>
+
+  <table class="poem-table">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Theme asked</th>
+        <th>Named poem</th>
+        <th>Best second poem choices (with reason)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>2017</strong></td>
+        <td>Effects of war / difficult experiences</td>
+        <td>Bayonet Charge · Remains</td>
+        <td>Exposure — WW1 contrast (inaction vs action); War Photographer — trauma carried home</td>
+      </tr>
+      <tr>
+        <td><strong>2018</strong></td>
+        <td>Ideas about power</td>
+        <td>Ozymandias</td>
+        <td>London — systemic vs personal power; My Last Duchess — gendered control; The Prelude — nature's power</td>
+      </tr>
+      <tr>
+        <td><strong>2019</strong></td>
+        <td>Effects of war on people</td>
+        <td>War Photographer · Poppies</td>
+        <td>Kamikaze — civilian aftermath; Remains — psychological damage; Bayonet Charge — mid-battle</td>
+      </tr>
+      <tr>
+        <td><strong>2020</strong></td>
+        <td>Difficult/painful experiences</td>
+        <td>Remains · War Photographer</td>
+        <td>Poppies — grief and loss; Exposure — physical and psychological suffering</td>
+      </tr>
+      <tr>
+        <td><strong>2021</strong></td>
+        <td>Power and control</td>
+        <td>London · The Emigrée</td>
+        <td>My Last Duchess — individual control; Ozymandias — political power over time; Checking Out Me History — reclaiming identity</td>
+      </tr>
+      <tr>
+        <td><strong>2022</strong></td>
+        <td>Ideas about conflict</td>
+        <td>Bayonet Charge</td>
+        <td>Exposure — same WW1 setting, different perspective; Storm on the Island — nature as conflict</td>
+      </tr>
+      <tr>
+        <td><strong>2023</strong></td>
+        <td>Power and its effects</td>
+        <td>My Last Duchess · London</td>
+        <td>Ozymandias — futility of power; Checking Out Me History — reclaiming power through identity</td>
+      </tr>
+      <tr>
+        <td><strong>2024</strong></td>
+        <td>How people are affected by conflict</td>
+        <td>Kamikaze · Bayonet Charge</td>
+        <td>Poppies — domestic aftermath; War Photographer — civilian carrying trauma; Remains — psychological aftermath</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-head">Deep-dive: high-value poems to know inside-out</div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="theme-pill">appeared 3+ times</span></div>
+      <span class="q-text">Bayonet Charge (Ted Hughes) — most frequently named poem; know every technique</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">AO1 — Central argument</span>
+        <ul class="bullet-list">
+          <li>Hughes presents war as a process of <strong>dehumanisation</strong> — the soldier loses identity, ideology and humanity until he is reduced to pure animal instinct</li>
+          <li>The poem suggests that <strong>the causes of war become meaningless</strong> in the experience of it — "King, honour, human dignity, etcetera / Dropped like luxuries"</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao2">AO2 — Key techniques</span>
+        <ul class="bullet-list">
+          <li><strong>Present tense throughout</strong> — "he lugged a rifle" shifts to present; the reader is pulled into the moment with the soldier; no narrative distance or retrospective comfort</li>
+          <li><strong>Enjambment mimics the charge</strong> — lines run on relentlessly, as the soldier cannot stop; form enacts theme</li>
+          <li><strong>"Yellow hare" simile</strong> — the soldier is compared to an animal fleeing for its life; the transformation from human to animal is complete</li>
+          <li><strong>Punctuation as shock</strong> — the poem begins mid-action; no introduction; the reader is dropped into chaos</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao3">AO3 — Context</span>
+        <ul class="bullet-list">
+          <li>Hughes did not serve in WW1 but wrote extensively about war's psychological cost — this is an empathetic rather than autobiographical poem</li>
+          <li>Written during the Cold War era — the critique of ideological war ("King, honour, etcetera") has contemporary resonance for Hughes's readers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="theme-pill">strategic pairing poem</span></div>
+      <span class="q-text">Ozymandias (Percy Bysshe Shelley) — best poem for any "power" question</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-ao1">AO1 — Central argument</span>
+        <ul class="bullet-list">
+          <li>Human power is <strong>ultimately futile</strong> against time and nature — the most powerful ruler in history is now rubble in a desert; the arrogance of power is self-defeating</li>
+          <li>Shelley critiques <strong>the political tyranny of his own era</strong> (the poem was written in 1818 during the Napoleonic period) — it is both historical and contemporary</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-ao2">AO2 — Key techniques</span>
+        <ul class="bullet-list">
+          <li><strong>Sonnet form with subverted rhyme scheme</strong> — the rigid structure of the sonnet (associated with permanence and love) ironically contains a poem about impermanence; form subverts expectation</li>
+          <li><strong>Embedded narrative</strong> (traveller told the speaker) — Ozymandias's power survives only in remembered fragments; it is already twice removed from reality</li>
+          <li>"<strong>Look on my works, ye Mighty, and despair!</strong>" — the irony intensifies with the next line ("Nothing beside remains") — the command only emphasises total destruction</li>
+          <li><strong>Juxtaposition</strong>: "sneer of cold command" (the tyrant's expression) preserved in stone while everything he commanded is gone — his arrogance outlasts his power but only as mockery</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head" onclick="toggle(this)">
+      <div class="q-meta"><span class="theme-pill">grade 9 comparison technique</span></div>
+      <span class="q-text">How to write the comparison paragraph — the method that gets grade 9</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="body-section">
+        <span class="body-label lbl-gen">Do NOT structure your essay as "poem 1… poem 2… comparison at the end"</span>
+        <ul class="bullet-list">
+          <li>This is the most common mistake. Examiners reward <strong>integrated comparison</strong> — comparing throughout, not at the end</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-g9">The integrated paragraph structure</span>
+        <div class="grade-block">
+          <strong>Structure:</strong> Point about Poem 1 → quotation → analysis → comparative connective → point about Poem 2 → quotation → analysis → develop the comparison<br><br>
+          <strong>Example:</strong> "Both poets present conflict as psychologically destructive, but while Hughes uses present-tense immediacy to place the reader inside the soldier's disintegrating mind, Duffy's War Photographer creates retrospective distance — the photographer 'seeks' solutions in the darkroom long after the event, suggesting trauma recurs rather than ends."
+        </div>
+      </div>
+      <div class="body-section">
+        <span class="body-label lbl-gen">High-scoring comparative connectives</span>
+        <ul class="bullet-list">
+          <li><strong>Contrast:</strong> whereas, in contrast, conversely, unlike, while, by comparison</li>
+          <li><strong>Similarity:</strong> similarly, likewise, both poets, in the same way, equally</li>
+          <li><strong>Nuance:</strong> yet both, despite this, although X presents… Y complicates this by…, where X focuses on… Y extends this to…</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /pane-poetry -->
+
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- GRADE 9 FORMULA -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="pane" id="pane-formula">
+  <div class="pane-header" style="border-bottom:2px solid #333;padding-bottom:.75rem;margin-bottom:1.5rem">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#333">The Grade 9 Essay Formula</h2>
+    <p style="font-size:13px;color:var(--muted);margin-top:.25rem">Decoded from AQA mark schemes and examiner reports 2017–2024</p>
+  </div>
+
+  <div class="formula-step">
+    <h3>Step 1: The three assessment objectives — what examiners actually reward</h3>
+    <div class="ao-row">
+      <div class="ao-box ao1">
+        <h4>AO1 — Your interpretation</h4>
+        <p>Personal, informed response. Argue a clear position. Select and reference evidence. Grade 9 key: offer <em>multiple interpretations</em> ("alternatively…", "a more cynical reading suggests…"). Never just describe the plot.</p>
+      </div>
+      <div class="ao-box ao2">
+        <h4>AO2 — The writer's methods</h4>
+        <p>Analyse specific techniques: language (word choice, imagery, metaphor) AND form (sonnet, soliloquy, monologue) AND structure (how the text is ordered, where climaxes fall). Grade 9 key: go beyond word-choice into form and structure.</p>
+      </div>
+      <div class="ao-box ao3">
+        <h4>AO3 — Context</h4>
+        <p>Historical, social, cultural context embedded <em>purposefully</em> — not bolted on at the end. Grade 9 key: "For a Jacobean audience who…" is better than "Shakespeare lived in Jacobean times." Context must explain the text, not merely describe the period.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula-step">
+    <h3>Step 2: The paragraph formula — every paragraph, every time</h3>
+    <div class="grade-block" style="font-style:normal">
+      <strong>Point</strong> (AO1 — make your interpretive claim, linked to the question) →
+      <strong>Evidence</strong> (short, embedded quotation — no more than 5–6 words) →
+      <strong>Analyse</strong> (AO2 — name the technique + explain the effect on the reader/audience) →
+      <strong>Develop</strong> (alternative interpretation OR link to another part of the text — this is what separates grade 7 from grade 9) →
+      <strong>Context</strong> (AO3 — embed naturally, explain why it matters for the meaning)
+    </div>
+    <br>
+    <ul class="bullet-list">
+      <li><strong>Never</strong> start a paragraph with "This quote shows…" — start with your interpretive claim about the text</li>
+      <li><strong>Never</strong> quote long passages — embed short quotations in your own sentences</li>
+      <li>Paragraphs 1–2: focus on the extract; Paragraph 3 must reference the rest of the text</li>
+      <li>Aim for 3 substantial paragraphs + introduction + conclusion; quality over quantity</li>
+    </ul>
+  </div>
+
+  <div class="formula-step">
+    <h3>Step 3: The grade gap — what separates each band</h3>
+    <div class="grade-compare">
+      <div class="gc-box bad">
+        <h4>Grade 4–5 (Level 3)</h4>
+        <p>"Lady Macbeth says she wants the spirits to 'unsex' her. This shows she is ambitious. Shakespeare uses this to show she is a powerful woman."<br><br>Problems: describes rather than analyses; no technique named; no context; no alternative reading.</p>
+      </div>
+      <div class="gc-box good">
+        <h4>Grade 8–9 (Level 5–6)</h4>
+        <p>"Shakespeare's use of imperative verbs — 'Come, you spirits… Come, thick night' — presents Lady Macbeth's ambition as ritualistic and commanding; the anaphora creates an incantatory rhythm that positions her as both supplicant and director of evil. For a Jacobean audience familiar with witchcraft, her invocation would register as genuinely transgressive — not merely metaphorical — rendering her ambition as cosmically dangerous rather than merely politically inconvenient."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula-step">
+    <h3>Step 4: High-scoring analytical vocabulary</h3>
+    <div class="vocab-grid">
+      <div class="vocab-item"><strong>Instead of "shows"</strong>connotes / foregrounds / renders / positions the reader to / implies / reveals</div>
+      <div class="vocab-item"><strong>Instead of "uses"</strong>deploys / constructs / engineers / fashions / orchestrates / employs</div>
+      <div class="vocab-item"><strong>For alternative readings</strong>alternatively / a more subversive reading / paradoxically / it is possible to argue / conversely</div>
+      <div class="vocab-item"><strong>For form &amp; structure</strong>soliloquy / stichomythia / enjambment / caesura / volta / dramatic irony / free indirect speech / epistolary form</div>
+      <div class="vocab-item"><strong>For context integration</strong>"For a [period] audience…" / "Writing in [year], Stevenson…" / "In the context of…, this would have registered as…"</div>
+      <div class="vocab-item"><strong>For comparing interpretations</strong>Shakespeare invites a dual reading… / The ambiguity here is purposeful… / A surface reading suggests… however…</div>
+      <div class="vocab-item"><strong>For structure</strong>Structurally significant / at this point in the play / the placement of this scene / Stevenson reserves this revelation until…</div>
+      <div class="vocab-item"><strong>For poetry comparison</strong>whereas / by contrast / both poets / despite this similarity / while X employs… Y instead chooses…</div>
+    </div>
+  </div>
+
+  <div class="formula-step">
+    <h3>Step 5: The introduction — 3 sentences, written in 2 minutes</h3>
+    <div class="grade-block" style="font-style:normal">
+      <strong>Sentence 1:</strong> Answer the question directly with a conceptual claim (not a plot summary).<br>
+      <strong>Sentence 2:</strong> Name your central method/technique and its effect.<br>
+      <strong>Sentence 3:</strong> Signal your wider argument (including the nuance / alternative reading).<br><br>
+      <strong>Model:</strong> "Stevenson presents duality not merely as a scientific experiment but as the inevitable consequence of a society that demands the total suppression of human desire in the name of respectability. Through the novel's fragmented, multi-narrator structure, he suggests that truth about the human psyche can only be approached obliquely — in confessions, letters and second-hand accounts. Crucially, Hyde is not wholly monstrous: he is Jekyll's authentic self, and Stevenson's most disturbing suggestion is that the creature society created is not Hyde, but Jekyll."
+    </div>
+  </div>
+
+  <div class="formula-step">
+    <h3>Step 6: Timing strategy — Paper 1 (1hr 45 min)</h3>
+    <ul class="bullet-list">
+      <li><strong>10 minutes:</strong> Read both questions in Section A (Shakespeare) and choose. Plan your essay — jot 3–4 main points, key quotations from extract + rest of play, one context point per paragraph</li>
+      <li><strong>50 minutes:</strong> Write your Shakespeare essay. Include a brief introduction, 3–4 analytical paragraphs, a conclusion</li>
+      <li><strong>5 minutes:</strong> Read Section B question (Jekyll/Hyde) and plan</li>
+      <li><strong>40 minutes:</strong> Write your 19th-century novel essay</li>
+      <li><strong>Never skip the plan</strong> — even 3 minutes planning saves 10 minutes of circling back mid-essay</li>
+    </ul>
+  </div>
+
+</div><!-- /pane-formula -->
+
+</main>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pane-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggle(head) {
+  const body = head.nextElementSibling;
+  const ch = head.querySelector('.chevron');
+  const open = body.classList.toggle('open');
+  ch.style.transform = open ? 'rotate(180deg)' : '';
+}
+function filter(section, theme, btn) {
+  const container = document.getElementById('cards-' + section);
+  if (!container) return;
+  container.querySelectorAll('.q-card').forEach(c => {
+    c.style.display = (theme === 'all' || c.dataset.theme === theme) ? '' : 'none';
+  });
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+}
+</script>
+
+</body>
+</html>
